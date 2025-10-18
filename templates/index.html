@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>속닥속닥 — 마음을 가까이</title>
+
+  <style>
+    /* ========================== */
+    /* ===== 공통 색상 & 폰트 ===== */
+    /* ========================== */
+    :root {
+      --bg1: #f7fbfb;
+      --bg2: #eaf6f4;
+      --primary1: #9ad3c7;
+      --primary2: #6fa8b7;
+      --accent: #f7b267;
+      --text-dark: #103534;
+      --text-light: #667a77;
+      --border-radius: 12px;
+      --shadow-light: rgba(0,0,0,0.08);
+      --font-main: "Noto Sans KR", "Inter", sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      line-height: 1.5;
+    }
+
+    /* ========================== */
+    /* ===== hero 컨테이너 ======= */
+    /* ========================== */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 80vh;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      padding: 24px;
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 24px var(--shadow-light);
+    }
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text-light);
+      margin-bottom: 24px;
+    }
+
+    /* ========================== */
+    /* ===== 시작 버튼 ======== */
+    /* ========================== */
+    .start-btn {
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--border-radius);
+      background: linear-gradient(90deg, var(--primary1), var(--primary2));
+      color: #083235;
+      cursor: pointer;
+      box-shadow: 0 6px 16px var(--shadow-light);
+      transition: all 0.25s ease;
+    }
+
+    .start-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    /* ========================== */
+    /* ===== Footer ======== */
+    .footer {
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 16px;
+      color: var(--text-light);
+      border-top: 1px solid rgba(0,0,0,0.05);
+      margin-top: auto;
+      width: 100%;
+    }
+
+    /* ========================== */
+    /* ===== 반응형 ======== */
+    @media (max-width: 768px) {
+      .title { font-size: 2rem; }
+      .subtitle { font-size: 1rem; }
+      .start-btn { padding: 12px 28px; font-size: 0.95rem; }
+      .container { padding: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .title { font-size: 1.6rem; }
+      .subtitle { font-size: 0.9rem; }
+      .start-btn { padding: 10px 24px; font-size: 0.9rem; }
+      .container { padding: 16px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="hero">
+    <div class="container">
+      <h1 class="title">속닥속닥</h1>
+      <p class="subtitle">청소년을 위한 디지털 심리 상담 플랫폼</p>
+      <button class="start-btn" id="start-btn">시작하기</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 속닥속닥 — 마음을 가까이</p>
+  </footer>
+
+  <script type="module" src="/static/script.js"></script>
+</body>
+</html>

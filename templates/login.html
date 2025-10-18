@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>속닥속닥 — 마음을 가까이</title>
+
+  <style>
+    /* ========================== */
+    /* ===== 공통 색상 & 폰트 ===== */
+    /* ========================== */
+    :root {
+      --bg1: #f7fbfb;
+      --bg2: #eaf6f4;
+      --primary1: #9ad3c7;
+      --primary2: #6fa8b7;
+      --accent: #f7b267;
+      --text-dark: #103534;
+      --text-light: #667a77;
+      --border-radius: 12px;
+      --shadow-light: rgba(0,0,0,0.08);
+      --font-main: "Noto Sans KR", "Inter", sans-serif;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      line-height: 1.5;
+    }
+
+    /* ========================== */
+    /* ===== hero 컨테이너 ======= */
+    /* ========================== */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 80vh;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      padding: 24px;
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 24px var(--shadow-light);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .title { font-size: 2rem; font-weight: 900; margin-bottom: 8px; }
+    .subtitle { font-size: 1rem; color: var(--text-light); margin-bottom: 16px; }
+
+    /* ========================== */
+    /* ===== 역할 선택 버튼 ===== */
+    /* ========================== */
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .role-btn {
+      flex: 1;
+      padding: 10px 16px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: var(--border-radius);
+      background: linear-gradient(90deg, var(--primary1), var(--primary2));
+      color: #083235;
+      cursor: pointer;
+      box-shadow: 0 4px 12px var(--shadow-light);
+      transition: all 0.25s ease;
+    }
+
+    .role-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+
+    /* ========================== */
+    /* ===== 로그인 폼 ======== */
+    /* ========================== */
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: var(--bg2);
+      padding: 16px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 12px var(--shadow-light);
+    }
+
+    .login-form h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+
+    .login-form input {
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      border-radius: var(--border-radius);
+      border: 1px solid #ccd8d6;
+      outline: none;
+      width: 100%;
+    }
+
+    .login-btn {
+      padding: 10px 16px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: var(--border-radius);
+      background: linear-gradient(90deg, var(--primary1), var(--primary2));
+      color: #083235;
+      cursor: pointer;
+      box-shadow: 0 4px 12px var(--shadow-light);
+      transition: all 0.25s ease;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+
+    /* 숨김 클래스 */
+    .hidden { display: none; }
+
+    /* ========================== */
+    /* ===== Footer ======== */
+    .footer {
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 16px;
+      color: var(--text-light);
+      border-top: 1px solid rgba(0,0,0,0.05);
+      margin-top: auto;
+      width: 100%;
+    }
+
+    /* ========================== */
+    /* ===== 반응형 ======== */
+    @media (max-width: 480px) {
+      .container { padding: 16px; }
+      .title { font-size: 1.6rem; }
+      .subtitle { font-size: 0.85rem; }
+      .role-btn, .login-btn { font-size: 0.9rem; padding: 8px 12px; }
+      .login-form input { font-size: 0.9rem; padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="hero">
+    <div class="container">
+      <h1 class="title">로그인</h1>
+      <p class="subtitle">청소년을 위한 디지털 심리 상담 플랫폼</p>
+
+      <div class="btn-group">
+        <button id="go-teacher-btn" class="role-btn">선생님</button>
+        <button id="go-student-btn" class="role-btn">학생</button>
+      </div>
+
+      <div id="teacher-login" class="login-form hidden">
+        <h2>선생님 로그인</h2>
+        <input type="text" id="teacher-name" placeholder="이름" />
+        <input type="password" id="teacher-password" placeholder="비밀번호" />
+        <button class="login-btn">로그인</button>
+      </div>
+
+      <div id="student-login" class="login-form hidden">
+        <h2>학생 로그인</h2>
+        <input type="text" id="student-id" placeholder="학번" />
+        <input type="password" id="student-password" placeholder="비밀번호" />
+        <button class="login-btn">로그인</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 속닥속닥 — 마음을 가까이</p>
+  </footer>
+
+  <script type="module" src="/static/script.js"></script>
+</body>
+</html>

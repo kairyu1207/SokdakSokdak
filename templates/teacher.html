@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>선생님 관리 페이지</title>
+
+  <style>
+    /* ========================== */
+    /* ===== 공통 색상 & 폰트 ===== */
+    /* ========================== */
+    :root {
+      --bg1: #f7fbfb;
+      --bg2: #eaf6f4;
+      --primary1: #9ad3c7;
+      --primary2: #6fa8b7;
+      --accent: #f7b267;
+      --text-dark: #103534;
+      --text-light: #667a77;
+      --border-radius: 12px;
+      --shadow-light: rgba(0,0,0,0.08);
+      --font-main: "Noto Sans KR", "Inter", sans-serif;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: var(--font-main);
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      line-height: 1.5;
+      padding: 20px;
+    }
+
+    h1 { font-size: 2rem; font-weight: 900; color: var(--text-dark); text-align: center; margin-bottom: 24px; }
+
+    /* ========================== */
+    /* ===== teacher 컨테이너 ===== */
+    /* ========================== */
+    .teacher-container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ========================== */
+    /* ===== 학생 카드 그리드 ===== */
+    /* ========================== */
+    #students-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .student-card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: 0 6px 16px var(--shadow-light);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .student-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+    }
+
+    .student-card .student-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-dark);
+      text-align: center;
+    }
+
+    .student-card .emoji {
+      font-size: 28px;
+    }
+
+    .student-card button {
+      padding: 8px 16px;
+      border-radius: var(--border-radius);
+      border: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+
+    .schedule-btn { background-color: var(--primary2); color: #fff; }
+    .schedule-btn:hover { background-color: #6fa8b7; }
+
+    .save-note-btn { background-color: var(--primary1); color: #083235; }
+    .save-note-btn:hover { background-color: #7fc0b0; }
+
+    .save-goal-btn { background-color: var(--accent); color: #083235; }
+    .save-goal-btn:hover { background-color: #f5a64f; }
+
+    .see-mental { background-color: #fff; border: 1px solid var(--primary2); color: var(--primary2); }
+    .see-mental:hover { background-color: var(--primary2); color: #fff; }
+
+    /* ========================== */
+    /* ===== Footer ======== */
+    .footer {
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 16px;
+      color: var(--text-light);
+      border-top: 1px solid rgba(0,0,0,0.05);
+      margin-top: 40px;
+      width: 100%;
+    }
+
+    /* ========================== */
+    /* ===== 반응형 ======== */
+    @media (max-width: 768px) {
+      #students-container { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+      .student-card { padding: 12px; }
+      h1 { font-size: 1.6rem; }
+    }
+
+    @media (max-width: 480px) {
+      #students-container { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
+      .student-card { padding: 10px; font-size: 0.85rem; }
+      h1 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="teacher-container">
+    <h1>반 학생 관리</h1>
+    <div id="students-container">
+      <!-- 학생 카드가 여기 동적으로 생성됨 -->
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 속닥속닥 — 마음을 가까이</p>
+  </footer>
+
+  <script type="module" src="/static/script.js"></script>
+</body>
+</html>

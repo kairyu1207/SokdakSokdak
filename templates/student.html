@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>속닥속닥 — 마음을 가까이</title>
+
+  <style>
+    /* ========================== */
+    /* ===== 공통 색상 & 폰트 ===== */
+    /* ========================== */
+    :root {
+      --bg1: #f7fbfb;
+      --bg2: #eaf6f4;
+      --primary1: #9ad3c7;
+      --primary2: #6fa8b7;
+      --accent: #f7b267;
+      --text-dark: #103534;
+      --text-light: #667a77;
+      --border-radius: 12px;
+      --shadow-light: rgba(0,0,0,0.08);
+      --font-main: "Noto Sans KR", "Inter", sans-serif;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      line-height: 1.5;
+    }
+
+    /* ========================== */
+    /* ===== 학생 페이지 컨테이너 ===== */
+    /* ========================== */
+    .student-container {
+      max-width: 600px;
+      width: 90%;
+      margin: 40px auto;
+      padding: 24px;
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 24px var(--shadow-light);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .student-container h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    /* ========================== */
+    /* ===== 대화 버튼 ======== */
+    /* ========================== */
+    #chat-btn {
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: var(--border-radius);
+      background: linear-gradient(90deg, var(--primary1), var(--primary2));
+      color: #083235;
+      cursor: pointer;
+      box-shadow: 0 6px 16px var(--shadow-light);
+      transition: all 0.25s ease;
+      margin-bottom: 24px;
+      border: none;
+    }
+
+    #chat-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    /* ========================== */
+    /* ===== 학생 정보 박스 ===== */
+    /* ========================== */
+    #student-info {
+      background: var(--bg2);
+      padding: 16px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 12px var(--shadow-light);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #student-info p {
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    #student-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    #student-note, #student-goal {
+      background: #fff;
+      border: 1px solid #ccd8d6;
+      border-radius: var(--border-radius);
+      padding: 10px;
+      min-height: 60px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      white-space: pre-wrap;
+    }
+
+    /* ========================== */
+    /* ===== Footer ======== */
+    .footer {
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 16px;
+      color: var(--text-light);
+      border-top: 1px solid rgba(0,0,0,0.05);
+      margin-top: auto;
+      width: 100%;
+    }
+
+    /* ========================== */
+    /* ===== 반응형 ======== */
+    @media (max-width: 768px) {
+      .student-container { padding: 20px; }
+      .student-container h1 { font-size: 1.6rem; }
+      #chat-btn { padding: 12px 28px; font-size: 0.95rem; }
+    }
+
+    @media (max-width: 480px) {
+      .student-container { padding: 16px; margin: 20px 10px; }
+      .student-container h1 { font-size: 1.4rem; }
+      #chat-btn { padding: 10px 24px; font-size: 0.9rem; }
+      #student-info { font-size: 0.9rem; padding: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="student-container">
+    <h1>학생 페이지</h1>
+    <button id="chat-btn">대화하기</button>
+    <div id="student-info"></div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 속닥속닥 — 마음을 가까이</p>
+  </footer>
+
+  <script type="module" src="/static/script.js"></script>
+</body>
+</html>
